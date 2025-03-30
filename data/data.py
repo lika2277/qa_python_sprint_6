@@ -1,6 +1,5 @@
 import locators.order_locators as locators
 from selenium.webdriver.common.keys import Keys
-
 form_inputs = [[
         [
             {'type': 'input', 'locator': locators.order_field_name, 'data': 'Петя'},
