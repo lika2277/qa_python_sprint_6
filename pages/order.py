@@ -51,7 +51,7 @@ class PageOrder(Page):
     def is_visible_form(self, locator=None):
         if locator is None:
             locator = self.locator_form
-        self.is_visible(locator)
+        return self.is_visible(locator)
 
     @allure.step('Заполнение формы')
     def fill_form(self, locators, data):
