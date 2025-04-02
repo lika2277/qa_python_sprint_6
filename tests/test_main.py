@@ -6,12 +6,10 @@ class TestMain:
     @allure.title('Проверка работы аккардиона')
     @staticmethod
     def test_accordion(browser):
-        count = 7
         main = PageMain(browser)
         main.open()
         main.accept_cookies()
 
-        accordion = main.get_accordion(count, count)
-        for i in range(count):
-            accordion.click_heading(i)
-            assert accordion.is_panel_visible(i)
+        for i in range(main.get_accordion_items_count()):
+            main.click_accordion_heading(i)
+            assert main.is_accordion_panel_visible(i)

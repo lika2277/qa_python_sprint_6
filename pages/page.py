@@ -24,7 +24,6 @@ class Page(PageBase):
         self.is_visible(self.locator_link_logo_scooter)
         self.click(self.locator_link_logo_scooter)
 
-
     @allure.step('Клик по логотипа "Яндекс"')
     def click_logo_yandex(self):
         self.is_visible(self.locator_link_logo_yandex)
