@@ -4,8 +4,6 @@ from pages.forms import PageFormCustomer, PageFormScooter, PageFormConfirm
 from pages.page import Page
 
 class PageOrder(Page):
-    # Cookies Button
-    locator_cookie = [By.ID, 'rcc-confirm-button']
     # Форма заказа
     locator_form = [By.CSS_SELECTOR, 'div[class^="Order_Form"]']
     # Форма подтверждения заказа
@@ -22,11 +20,6 @@ class PageOrder(Page):
     @allure.step('Открыть страницу')
     def open(self, url = 'https://qa-scooter.praktikum-services.ru/order'):
         self.driver.get(url)
-
-    @allure.step('Принять cookie')
-    def accept_cookies(self):
-        self.is_visible(self.locator_cookie)
-        self.click(self.locator_cookie)
 
     def is_visible_form(self):
         return self.is_visible(self.locator_form)

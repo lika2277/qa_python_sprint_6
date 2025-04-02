@@ -4,21 +4,10 @@ from pages.accordion import PageAccordion
 from pages.page import Page
 
 class PageMain(Page):
-    # Cookies Button
-    locator_cookie = [By.ID, 'rcc-confirm-button']
     # Кнопка заказать (вверху страницы)
     locator_button_order_top = [By.CSS_SELECTOR, 'div[class^="Header_Nav"] > button[class^="Button_Button"]']
     # Кнопка заказать (внизу страницы)
     locator_button_order_bottom = [By.CSS_SELECTOR, 'div[class^="Home_FinishButton"] > button[class^="Button_Button"]']
-
-    @allure.step('Открыть страницу')
-    def open(self, url = 'https://qa-scooter.praktikum-services.ru/'):
-        self.driver.get(url)
-
-    @allure.step('Принять cookie')
-    def accept_cookies(self):
-        self.is_visible(self.locator_cookie)
-        self.click(self.locator_cookie)
 
     @allure.step('Клик по кнопке "Заказать" в шапке проекта')
     def click_order_button_top(self):
