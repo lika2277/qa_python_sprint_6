@@ -27,7 +27,6 @@ class TestOrder:
         order = PageOrder(browser)
         order.open()
         order.accept_cookies()
-
         order.submit_form_customer(input_data[0])
         order.submit_form_scooter(input_data[1])
         order.submit_form_confirm()
@@ -40,4 +39,4 @@ class TestOrder:
         order.open()
         order.accept_cookies()
         order.click_logo_scooter()
-        assert browser.current_url == 'https://qa-scooter.praktikum-services.ru/'
+        assert order.get_current_url() == 'https://qa-scooter.praktikum-services.ru/'
