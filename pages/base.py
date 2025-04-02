@@ -25,3 +25,23 @@ class PageBase:
 
     def scroll(self, locator):
         self.driver.execute_script("arguments[0].scrollIntoView();", self.find(locator))
+
+    def get_current_url(self):
+        return self.driver.current_url
+
+    def get_current_window(self):
+        return self.driver.current_window_handle
+
+    def get_windows(self):
+        return self.driver.window_handles
+
+    def switch_to_window(self, window):
+        return self.driver.switch_to.window(window)
+
+    def is_number_of_windows(self, number):
+        WebDriverWait(self.driver, self.timeout).until(expected_conditions.number_of_windows_to_be(number))
+        return True
+
+    def is_url(self, url):
+        WebDriverWait(self.driver, self.timeout).until(expected_conditions.url_to_be(url))
+        return True

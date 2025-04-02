@@ -1,5 +1,7 @@
 import allure
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions
 from pages.base import PageBase
 
 class Page(PageBase):
@@ -28,3 +30,14 @@ class Page(PageBase):
     def click_logo_yandex(self):
         self.is_visible(self.locator_link_logo_yandex)
         self.click(self.locator_link_logo_yandex)
+
+    def check_redirect(self, url):
+        original_window = self.get_current_window()
+        self.is_number_of_windows(2)
+
+        for window in self.get_windows():
+            if window != original_window:
+                self.switch_to_window(window)
+                break
+
+        self.is_url(url)
