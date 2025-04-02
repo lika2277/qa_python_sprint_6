@@ -47,7 +47,7 @@ class TestOrder:
         order = PageOrder(browser)
         order.open()
         order.accept_cookies()
-        order.header.click_logo_scooter()
+        order.click_logo_scooter()
         assert browser.current_url == 'https://qa-scooter.praktikum-services.ru/'
 
     @allure.title('Проверка работы ссылки в шапке проекта')
@@ -58,7 +58,7 @@ class TestOrder:
 
         original_window = browser.current_window_handle
 
-        main.header.click_logo_yandex()
+        main.click_logo_yandex()
 
         WebDriverWait(browser, 10).until(expected_conditions.number_of_windows_to_be(2))
 

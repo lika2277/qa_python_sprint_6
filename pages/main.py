@@ -1,20 +1,15 @@
 import allure
 from selenium.webdriver.common.by import By
-from pages.base import PageBase
-from pages.header import PageHeader
 from pages.accordion import PageAccordion
+from pages.page import Page
 
-class PageMain(PageBase):
+class PageMain(Page):
     # Cookies Button
     locator_cookie = [By.ID, 'rcc-confirm-button']
     # Кнопка заказать (вверху страницы)
     locator_button_order_top = [By.CSS_SELECTOR, 'div[class^="Header_Nav"] > button[class^="Button_Button"]']
     # Кнопка заказать (внизу страницы)
     locator_button_order_bottom = [By.CSS_SELECTOR, 'div[class^="Home_FinishButton"] > button[class^="Button_Button"]']
-
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.header = PageHeader(driver)
 
     @allure.step('Открыть страницу')
     def open(self, url = 'https://qa-scooter.praktikum-services.ru/'):

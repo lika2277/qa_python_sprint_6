@@ -1,6 +1,7 @@
 from selenium.webdriver.common.keys import Keys
 
-form_inputs = [[
+form_inputs = [
+    [
         [
             {'type': 'input', 'name': 'name', 'data': 'Петя'},
             {'type': 'input', 'name': 'second_name', 'data': 'Петров'},
@@ -28,4 +29,5 @@ form_inputs = [[
             {'type': 'select', 'name': 'period', 'item': 'period_item', 'index': 3},
             {'type': 'checkbox', 'name': 'color', 'index': 1}
         ]
-]]
+    ]
+]

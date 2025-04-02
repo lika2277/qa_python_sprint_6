@@ -1,10 +1,9 @@
 import allure
 from selenium.webdriver.common.by import By
-from pages.base import PageBase
-from pages.header import PageHeader
 from pages.forms import PageFormCustomer, PageFormScooter, PageFormConfirm
+from pages.page import Page
 
-class PageOrder(PageBase):
+class PageOrder(Page):
     # Cookies Button
     locator_cookie = [By.ID, 'rcc-confirm-button']
     # Форма заказа
@@ -14,7 +13,6 @@ class PageOrder(PageBase):
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.header = PageHeader(driver)
         self.forms = {
             'customer': PageFormCustomer(driver),
             'scooter': PageFormScooter(driver),

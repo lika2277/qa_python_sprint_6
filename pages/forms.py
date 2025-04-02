@@ -46,8 +46,6 @@ class PageFormCustomer(PageForm):
     locator_field_address = [By.CSS_SELECTOR, 'input[type="text"][placeholder="* Адрес: куда привезти заказ"]']
     # Поле "Станция метро"
     locator_field_metro = [By.CSS_SELECTOR, 'input[placeholder="* Станция метро"]']
-    # Поле "Станция метро" - выдабщий список
-    # locator_field_metro_select = [By.CLASS_NAME, 'select-search__select']
     # Поле "Станция метро" - элемент выпадающего списка
     locator_field_metro_select_item = [By.CLASS_NAME, 'select-search__row']
     # Поле "Телефон"
