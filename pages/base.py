@@ -22,3 +22,6 @@ class PageBase:
 
     def click(self, locator):
         self.driver.find_element(*locator).click()
+
+    def scroll(self, locator):
+        self.driver.execute_script("arguments[0].scrollIntoView();", self.find(locator))

@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from pages.base import PageBase
 from pages.header import PageHeader
+from pages.accordion import PageAccordion
 
 class PageMain(PageBase):
     # Cookies Button
@@ -28,3 +29,6 @@ class PageMain(PageBase):
     def click_order_button_bottom(self):
         self.is_visible(self.locator_button_order_bottom)
         self.click(self.locator_button_order_bottom)
+
+    def get_accordion(self, headings_count = 0, panels_count = 0):
+        return PageAccordion(self.driver, headings_count, panels_count)
