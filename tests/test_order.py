@@ -30,15 +30,9 @@ class TestOrder:
         order.open()
         order.accept_cookies()
 
-        order.is_visible_form()
-        order.submit('customer', input_data[0])
-
-        order.is_visible_form()
-        order.submit('scooter', input_data[1])
-
-        order.is_visible_form()
-        order.submit('confirm')
-
+        order.submit_form_customer(input_data[0])
+        order.submit_form_scooter(input_data[1])
+        order.submit_form_confirm()
         assert order.is_visible_result()
 
     @allure.title('Проверка работы ссылки в шапке проекта')
