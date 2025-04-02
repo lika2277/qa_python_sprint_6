@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 from pages.base import PageBase
 from pages.header import PageHeader
@@ -20,9 +21,11 @@ class PageOrder(PageBase):
             'confirm': PageFormConfirm(driver)
         }
 
+    @allure.step('Открыть страницу')
     def open(self, url = 'https://qa-scooter.praktikum-services.ru/order'):
         self.driver.get(url)
 
+    @allure.step('Принять cookie')
     def accept_cookies(self):
         self.is_visible(self.locator_cookie)
         self.click(self.locator_cookie)

@@ -1,9 +1,11 @@
+import allure
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from pages.main import PageMain
 from pages.order import PageOrder
 
 class TestOrder:
+    @allure.title('Проверка кнопки "Заказать"')
     @staticmethod
     def test_order_button_top(browser):
         main = PageMain(browser)
@@ -12,6 +14,7 @@ class TestOrder:
         main.click_order_button_top()
         assert PageOrder(browser).is_visible_form()
 
+    @allure.title('Проверка кнопки "Заказать"')
     @staticmethod
     def test_order_button_bottom(browser):
         main = PageMain(browser)
@@ -20,6 +23,7 @@ class TestOrder:
         main.click_order_button_bottom()
         assert PageOrder(browser).is_visible_form()
 
+    @allure.title('Проверка формы заказа')
     @staticmethod
     def test_order_form(browser, input_data):
         order = PageOrder(browser)
@@ -37,6 +41,7 @@ class TestOrder:
 
         assert order.is_visible_result()
 
+    @allure.title('Проверка работы ссылки в шапке проекта')
     @staticmethod
     def test_logo_scooter(browser):
         order = PageOrder(browser)
@@ -45,6 +50,7 @@ class TestOrder:
         order.header.click_logo_scooter()
         assert browser.current_url == 'https://qa-scooter.praktikum-services.ru/'
 
+    @allure.title('Проверка работы ссылки в шапке проекта')
     @staticmethod
     def test_logo_yandex(browser):
         main = PageMain(browser)

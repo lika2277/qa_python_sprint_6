@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 from pages.base import PageBase
 
@@ -5,11 +6,13 @@ class PageForm(PageBase):
     # Форма заказа
     locator_form = [By.CSS_SELECTOR, 'div[class^="Order_Form"]']
 
+    @allure.step('Проверка отображения формы')
     def is_visible_form(self, locator = None):
         if locator is None:
             locator = self.locator_form
         self.is_visible(locator)
 
+    @allure.step('Заполнение формы')
     def fill_form(self, data, locators):
         for field in data:
             if field.get('type') == 'input':
@@ -29,6 +32,7 @@ class PageForm(PageBase):
                 self.is_visible(locator_checkbox)
                 self.select(locator_checkbox, field.get('index'))
 
+    @allure.step('Отправка формы')
     def submit_form(self, locator):
         self.is_visible(locator)
         self.click(locator)

@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 from pages.base import PageBase
 
@@ -7,6 +8,7 @@ class PageAccordion(PageBase):
         self.headings = headings
         self.panels = panels
 
+    @allure.step('Клик по разделу аккордиона')
     def click_heading(self, index):
         if index < 0 or index >= self.headings:
             raise IndexError
@@ -14,6 +16,7 @@ class PageAccordion(PageBase):
         self.is_visible(locator)
         self.click(locator)
 
+    @allure.step('Проверка отображения скрытого под аккордионом элемента')
     def is_panel_visible(self, index):
         if index < 0 or index >= self.panels:
             raise IndexError

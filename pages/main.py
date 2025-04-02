@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 from pages.base import PageBase
 from pages.header import PageHeader
@@ -15,17 +16,21 @@ class PageMain(PageBase):
         super().__init__(driver)
         self.header = PageHeader(driver)
 
+    @allure.step('Открыть страницу')
     def open(self, url = 'https://qa-scooter.praktikum-services.ru/'):
         self.driver.get(url)
 
+    @allure.step('Принять cookie')
     def accept_cookies(self):
         self.is_visible(self.locator_cookie)
         self.click(self.locator_cookie)
 
+    @allure.step('Клик по кнопке "Заказать" в шапке проекта')
     def click_order_button_top(self):
         self.is_visible(self.locator_button_order_top)
         self.click(self.locator_button_order_top)
 
+    @allure.step('Клик по кнопке "Заказать" в нижней части проекта')
     def click_order_button_bottom(self):
         self.is_visible(self.locator_button_order_bottom)
         self.click(self.locator_button_order_bottom)
